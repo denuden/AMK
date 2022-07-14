@@ -1,0 +1,14 @@
+.sidebar{
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.cont{
+    margin-left:300px;
+    width: calc(100% - 300px); 
+    z-index: 111;
+}
+
