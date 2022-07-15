@@ -10,6 +10,23 @@
 
 <!-- Custom styles for this template -->
 <link href="css/admin-employee-manage.css" rel="stylesheet">
+
+<meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+      <!-- Favicon icon -->
+      <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+      <!-- Google font-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+	  <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
 </head>
 
 <body>
@@ -17,14 +34,30 @@
 
     <?php include_once "php/global/sidebar.php"?>
 
-    <div class=" cont">
-        <div class="w-100 bg-light d-flex p-4 text-dark">
-            <h3 class="me-4">Employee Details</h3>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                class="btn btn-outline-success ms-4" id="addEmployee">Add new employee</button>
-        </div>
-        <table class="table table-hover align-middle table-striped ">
-            <thead class="table-dark">
+      <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                        <div class="page-wrapper">
+                        <h3 class="me-4">Employee Details</h3>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      class="btn btn-outline-success" id="addEmployee" style="position: absolute; margin-top: -50px;  margin-left: 75%;" >Add new employee</button>
+                                    <div class="page-body">
+                                      <div class="row">
+
+                   <!-- tabs card start -->
+                   <div class="col-sm-12">
+                    <div class="card tabs-card">
+                        <div class="card-block p-0">
+                            <!-- Nav tabs -->
+                      
+                            <!-- Tab panes -->
+                            <div class="tab-content card-block">
+                                <div class="tab-pane active" id="home3" role="tabpanel">
+                                    <br>
+                       
+                                <div class="table-responsive">
+                                    
+                                        <table id="tb" class="table">
                 <tr>
                     <th scope="col">#ID</th>
                     <th scope="col">First Name</th>
@@ -33,7 +66,7 @@
                     <th scope="col">Age</th>
                     <th scope="col">Gender</th>
                     <th scope="col">Address</th>
-                    <th scope="col"></th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,7 +94,8 @@
                              data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
                              data-id = "<?php echo htmlspecialchars($item['id'])?>"
                              style="font-size: 22px;"></i>
-                            <i class="fa-solid fa-trash delete pointer" style="font-size: 22px;"></i>
+                            <a class="fa-solid fa-trash delete pointer" style="font-size: 22px;"
+                            href="php/delete-employee/delete-confirmation.php?id=<?php echo htmlspecialchars($item['id'])?>"></a>
                         </div>
                     </td>
                 </tr>
@@ -138,6 +172,29 @@
 
 
 </body>
+
+<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+<!-- am chart -->
+<script src="assets/pages/widget/amchart/amcharts.min.js"></script>
+<script src="assets/pages/widget/amchart/serial.min.js"></script>
+<!-- Chart js -->
+<script type="text/javascript" src="assets/js/chart.js/Chart.js"></script>
+<!-- Todo js -->
+<script type="text/javascript " src="assets/pages/todo/todo.js "></script>
+<!-- Custom js -->
+<script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.min.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+<script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/vartical-demo.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.bundle.min.js"
     integrity="sha512-ndrrR94PW3ckaAvvWrAzRi5JWjF71/Pw7TlSo6judANOFCmz0d+0YE+qIGamRRSnVzSvIyGs4BTtyFMm3MT/cg=="

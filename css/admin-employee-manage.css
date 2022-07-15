@@ -13,3 +13,10 @@
     cursor: pointer;
 }
 
+.fa-trash:hover{
+    color: rgb(238, 10, 10);
+}
+
+.fa-pen:hover{
+    color: rgb(14, 180, 14);
+}
