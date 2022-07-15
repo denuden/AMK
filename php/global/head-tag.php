@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Von Denuelle Tandoc, Ken Matthew Ammay, Royce Ogot, John Lloyd Mariano, Jerome Pangan">
-    <title>AMK | Login </title>
+    <title>AMK Digital Payroll</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -19,12 +19,21 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <style>
-      * {
+      body {
         font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
       h5#error {
         color: #b82c2c;
       }
+      @media print {
+        .noPrint{
+          display:none;
+        }
+      }
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;

@@ -13,6 +13,7 @@ if (isset($usn)) {
 
         if ($pwdCheck) {
           if ($row['first_time_login'] == 0) { // it is the first time
+          
             session_start();
             $_SESSION['tempemployeeid']= -1;
             $_SESSION['employeeid']= $row['id'];
@@ -29,12 +30,23 @@ if (isset($usn)) {
             $stmt = $dbh->prepare($sql);
             $stmt->execute([1, $key, $row['id']]);
 
+            // always log history
+            $sql = "INSERT INTO access_history_tbl (employee_id) VALUES (?)";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute([$row['id']]);
+
             $error = ['confirmation' => 'confirmation'];
             echo json_encode($error);
             exit();
 
           } else { // not the first time
             session_start();
+
+            // always log history
+            $sql = "INSERT INTO access_history_tbl (employee_id) VALUES (?)";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute([$row['id']]);
+
             $_SESSION['tempemployeeid']= $row['id'];
             $error = ['panel' => 'panel'];
             echo json_encode($error);

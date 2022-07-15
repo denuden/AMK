@@ -1,14 +1,15 @@
 .sidebar{
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-    top: 0;
-    left: 0;
+    max-width: 280px;
 }
 
 .cont{
-    margin-left:300px;
-    width: calc(100% - 300px); 
+    margin-left:304px;
+    width: calc(100% - 304px); 
     z-index: 111;
+}
+
+
+.pointer{
+    cursor: pointer;
 }
 

@@ -74,7 +74,7 @@
         <strong>Admin</strong>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-        <li><a class="dropdown-item" href="#">Key: <?php echo $_SESSION['key'];?></a></li>
+        <li><a class="dropdown-item" href="#" id="printableArea" onclick="printDiv('printableArea')">Key: <?php echo $_SESSION['key'];?></a></li>
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><a class="dropdown-item" href="php/logout">Sign out</a></li>
       </ul>
