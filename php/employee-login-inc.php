@@ -14,17 +14,18 @@ if (isset($usn)) {
         if ($pwdCheck) {
           if ($row['first_time_login'] == 0) { // it is the first time
           
-            session_start();
-            $_SESSION['tempemployeeid']= -1;
-            $_SESSION['employeeid']= $row['id'];
-            $_SESSION['username']= $row['emp_username'];
-            $_SESSION['type']= $row['firstname'];
-            $_SESSION['key']= $row['unique_key'];
-            
+
             // update first time login to false since login has been done
             // update key to proper generated unique one
             $id = $row['id'];
             $key = uniqid("0"."$id", false);
+
+            session_start();
+            $_SESSION['tempemployeeid']= -1;
+            $_SESSION['employeeid']= $row['id'];
+            $_SESSION['username']= $row['emp_username'];
+            $_SESSION['name']= $row['firstname'];
+            $_SESSION['key']= $key;
 
             $sql = "UPDATE employee_tbl SET first_time_login = ?, unique_key = ? WHERE id = ?";
             $stmt = $dbh->prepare($sql);

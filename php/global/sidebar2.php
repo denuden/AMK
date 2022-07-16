@@ -84,15 +84,9 @@
                              
                                <img src="https://static.vecteezy.com/system/resources/previews/002/275/847/original/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg" alt="" width="40" height="40" class="rounded-circle me-2">
                                  
-                               <!-- <?php
-				$id = $_SESSION['id'];
-				$sql = $dbh->prepare("SELECT * FROM `employee_tbl` WHERE `id`='$id'");
-				$sql->execute();
-				$fetch = $sql->fetch();
-	?>   
-                               <strong><?php echo $fetch['firstname']." "?> </strong> -->
+       
 
-                               <strong>Employee Name</strong>
+                               <strong><?php echo htmlspecialchars($_SESSION['name']); ?></strong>
 
                                    <i class="ti-angle-down"></i>
                                </a>

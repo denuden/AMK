@@ -44,14 +44,19 @@ if (isset($name)) {
                 exit();
             } else {
 
-                $sql = "INSERT INTO allowance_tbl (name, description, amount) VALUES (?,?,?)";
-                $stmt = $dbh->prepare($sql);
+                $sql = "UPDATE allowance_tbl
+                    SET 
+                    name = ?,
+                    description = ?,
+                    amount = ?
+                    WHERE id = ?";
+                    $stmt = $dbh->prepare($sql);
 
-                $stmt->execute([$name, $description, $amount]);
+                    $stmt->execute([$name, $description, $amount, $id]);
 
-                $error = ['success' => 'success'];
-                echo json_encode($error);
-                exit();
+                    $error = ['success' => 'success'];
+                    echo json_encode($error);
+                    exit();
             }
         }
 

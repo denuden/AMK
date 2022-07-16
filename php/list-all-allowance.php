@@ -2,7 +2,7 @@
 require_once 'config/config.php';
 
 if (isset($_GET['id'])) {
-    $sql  = 'SELECT * FROM allowance_tbl; WHERE id = '.$_GET['id'];
+    $sql  = 'SELECT * FROM allowance_tbl WHERE id = '.$_GET['id'];
 
     $query = $dbh -> query($sql);
     $rowCount = $query -> rowCount();
