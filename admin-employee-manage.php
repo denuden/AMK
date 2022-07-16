@@ -95,7 +95,7 @@
                              data-id = "<?php echo htmlspecialchars($item['id'])?>"
                              style="font-size: 22px;"></i>
                             <a class="fa-solid fa-trash delete pointer" style="font-size: 22px;"
-                            href="php/delete-employee/delete-confirmation.php?id=<?php echo htmlspecialchars($item['id'])?>"></a>
+                            href="php/delete-employee/delete-employee-confirmation.php?id=<?php echo htmlspecialchars($item['id'])?>"></a>
                         </div>
                     </td>
                 </tr>

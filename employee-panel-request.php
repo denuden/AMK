@@ -40,7 +40,7 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                <h3 class="me-4">Payroll Status</h3>
+                                <h3 class="me-4">Request Form</h3>
                                     <div class="page-body">
                                       <div class="row">
 
@@ -50,71 +50,54 @@
                         <div class="card-block p-0">
                             <!-- Nav tabs -->
                       
-                            <!-- Tab panes -->
-                            <div class="tab-content card-block">
-                                <div class="tab-pane active" id="home3" role="tabpanel">
-                                    <br>
-                                <div class="table-responsive">
-                                        <table id="tb" class="table">
-                <tr>
-                    <th scope="col">Account ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Salary Status</th>
-                    <th scope="col">Deduction Description</th>
-                    <th scope="col">Deduction Amount</th>
-                    <th scope="col">Allowance</th>
-                    <th scope="col">Total Salary</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tbody class="table-group-divider">
-                <?php 
-              require_once "php/config/config.php";
-              $sql ="SELECT 
-              e.firstname as firstname,
-              e.lastname as lastname,
-              e.phone as phone,
-              e.emp_username as username,
-              a.date_accessed as date,
-              a.employee_id
-              FROM access_history_tbl a
-              LEFT JOIN employee_tbl e on a.employee_id = e.id
-               ORDER BY date DESC";
+                       <!-- Tab panes -->
+                       <form action="#" method="POST">
+                    
+                                <div class="form">
+                                <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <span>Type of request</span>
+                                    <select class="form-control" name="Request" required>
+                                    <option> </option>
+                                    <option value="Cash Advance"> Absent</option>
+                                    <option value="Cash Advance"> Cash Advance</option>
+                                    <option value="Cash Advance"> Leave</option>
+                                    </div>
+                                        <div class="col-sm-6">
+                                        <span></span>
+                                        <input type="hidden" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6">
+                                    <span>Day</span>
+                                        <input type="date" class="form-control"
+                                        placeholder="PRODUCT PRICE" name="" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    <span>Reason</span>
+                                    <textarea  class="form-control" name="" required></textarea>
+                                    </div>                         
+                                
+                                    </div>
+                                    
+                                </div>
+                            </div>
 
-              $query = $dbh -> query($sql);
-              $results=$query->fetchAll(PDO::FETCH_ASSOC);
-              $rowcount=$query->rowCount();
-
-              if ($rowcount > 0) {
-                foreach ($results as $item) {
-           ?>
-                <tr>
-                    <th scope="row"><?php echo htmlspecialchars($item['employee_id'])?></th>
-                    <td><?php echo htmlspecialchars($item['firstname'])?></td>
-                    <td><?php echo htmlspecialchars($item['lastname'])?></td>
-                    <td><?php echo htmlspecialchars($item['phone'])?></td>
-                    <td><?php echo htmlspecialchars($item['username'])?></td>
-                    <td>
-                    <?php
-                      $date = date_create(htmlspecialchars($item['date']));
-                      $formattedDate = date_format($date, 'D M j-Y, g:i a');
-                      echo $formattedDate;
-                    ?>
-                
-                </tr>
-                <?php          
-                }
-            }
-            ?>
-            </tbody>
-            <caption class="ps-2">Number of times access: <?php echo $rowcount; ?></caption>
+                        <div class="button">
+                            <button  class="btn btn-success btn-round">Submit request</button>
+                            
+                            <button  class="btn btn-danger btn-round" onclick="goBack()">Cancel</button>
+                            <script>
+                                     function goBack() {
+                                               window.history.back();
+                                       }
+              </script>
+                        </div>
+                            </form>
         </table>
     </div>
 
   </body>
     
-
 <script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>

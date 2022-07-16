@@ -43,6 +43,8 @@
                             <div class="main-body">
                                 <div class="page-wrapper">
                                 <h3 class="me-4">Deduction</h3>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      class="btn btn-outline-success" id="addEmployee" style="position: absolute; margin-top: -50px;  margin-left: 80%;" >Add Deduction</button>
                                     <div class="page-body">
                                       <div class="row">
 

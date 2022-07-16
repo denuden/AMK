@@ -40,7 +40,10 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                <h3 class="me-4">Payroll Status</h3>
+                                <h3 class="me-4">Request Status</h3>
+                           <a href="employee-panel-request.php" ><button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                class="btn btn-outline-success" id="addEmployee" style="position: absolute; margin-top: -50px;  margin-left: 80%;" >Request</button></a>
+                   
                                     <div class="page-body">
                                       <div class="row">
 
@@ -60,11 +63,9 @@
                     <th scope="col">Account ID</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
-                    <th scope="col">Salary Status</th>
-                    <th scope="col">Deduction Description</th>
-                    <th scope="col">Deduction Amount</th>
-                    <th scope="col">Allowance</th>
-                    <th scope="col">Total Salary</th>
+                    <th scope="col">Type of Request</th>
+                    <th scope="col">Reason</th>
+                    <th scope="col">Request Status</th>
                 </tr>
             </thead>
             <tbody>

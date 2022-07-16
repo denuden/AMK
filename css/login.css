@@ -12,8 +12,7 @@ body {
 }
 
 .form-signin {
-  max-width: 330px;
-  padding: 15px;
+  max-width: 800px;
 }
 
 .form-signin .form-floating:focus-within {
@@ -30,4 +29,16 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.amklogo{
+  position: absolute;
+  margin-left: 120px;
+  margin-top: -10px;
+}
+
+hr{
+  height: 10px;
+  background-color: #000;
+  border: none;
 }
