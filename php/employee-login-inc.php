@@ -25,6 +25,7 @@ if (isset($usn)) {
             $_SESSION['employeeid']= $row['id'];
             $_SESSION['username']= $row['emp_username'];
             $_SESSION['name']= $row['firstname'];
+            $_SESSION['lname']= $row['lastname'];
             $_SESSION['key']= $key;
 
             $sql = "UPDATE employee_tbl SET first_time_login = ?, unique_key = ? WHERE id = ?";

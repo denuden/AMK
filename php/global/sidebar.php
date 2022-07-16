@@ -123,7 +123,7 @@
                                 <a href="/AMK" class="nav-link link-dark" aria-current="page">
                                         
                                         <span class="pcoded-micon"><i class="fa-solid fa-house"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Panel</span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Logs</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>

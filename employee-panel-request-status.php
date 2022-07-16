@@ -5,13 +5,11 @@
       header("Location: /AMK/employee-login");
     }
 
-    include "php/global/head-tag.php";   
+    include "php/global/head-tag.php";
 ?>
- 
-    <?php include_once "php/global/sidebar2.php"?>
-
+    
     <!-- Custom styles for this template -->
-    <link href="css/employee-panel.css" rel="stylesheet">
+    <link href="css/admin-employee-manage.css" rel="stylesheet">
 
 
     <title>AMK Digital Payroll System </title>
@@ -32,18 +30,21 @@
       <!-- Style.css -->
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
       <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+
+
   </head>
   <body>
-    
+    <!--  SIDE BAR -->
 
-  <div class="pcoded-content">
+        <?php include_once "php/global/sidebar2.php"?>
+
+        <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
                                 <h3 class="me-4">Request Status</h3>
-                           <a href="employee-panel-request.php" ><button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                class="btn btn-outline-success" id="addEmployee" style="position: absolute; margin-top: -50px;  margin-left: 80%;" >Request</button></a>
-                   
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      class="btn btn-outline-success" id="request" style="position: absolute; margin-top: -50px;  margin-left: 80%;" >Request</button>
                                     <div class="page-body">
                                       <div class="row">
 
@@ -60,12 +61,11 @@
                                 <div class="table-responsive">
                                         <table id="tb" class="table">
                 <tr>
-                    <th scope="col">Account ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Type of Request</th>
-                    <th scope="col">Reason</th>
-                    <th scope="col">Request Status</th>
+                <th scope="col">Type of Request</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,15 +73,9 @@
                 <?php 
               require_once "php/config/config.php";
               $sql ="SELECT 
-              e.firstname as firstname,
-              e.lastname as lastname,
-              e.phone as phone,
-              e.emp_username as username,
-              a.date_accessed as date,
-              a.employee_id
-              FROM access_history_tbl a
-              LEFT JOIN employee_tbl e on a.employee_id = e.id
-               ORDER BY date DESC";
+              *
+              FROM deduction_tbl
+               ORDER BY id DESC";
 
               $query = $dbh -> query($sql);
               $results=$query->fetchAll(PDO::FETCH_ASSOC);
@@ -91,30 +85,77 @@
                 foreach ($results as $item) {
            ?>
                 <tr>
-                    <th scope="row"><?php echo htmlspecialchars($item['employee_id'])?></th>
-                    <td><?php echo htmlspecialchars($item['firstname'])?></td>
-                    <td><?php echo htmlspecialchars($item['lastname'])?></td>
-                    <td><?php echo htmlspecialchars($item['phone'])?></td>
-                    <td><?php echo htmlspecialchars($item['username'])?></td>
-                    <td>
-                    <?php
-                      $date = date_create(htmlspecialchars($item['date']));
-                      $formattedDate = date_format($date, 'D M j-Y, g:i a');
-                      echo $formattedDate;
-                    ?>
-                
+                    <td><?php echo htmlspecialchars($item['mode'])?></td>
+                    <td><?php echo htmlspecialchars($item['start'])?></td>
+                    <td><?php echo htmlspecialchars($item['until'])?></td>
+                    <td><?php echo htmlspecialchars($item['reason'])?></td>
+                    <td>Ikaw na bahala von</td>
                 </tr>
                 <?php          
                 }
             }
             ?>
             </tbody>
-            <caption class="ps-2">Number of times access: <?php echo $rowcount; ?></caption>
+            <caption class="ps-2">Number of request: <?php echo $rowcount; ?></caption>
         </table>
     </div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Request Form</h5>
+                    <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  
+                    <div class="input-group mb-3">
+                    <span class="input-group-text">Mode</span>
+                        <select type="text" class="form-control mode" placeholder="Mode" aria-label="Mode"
+                            aria-describedby="basic-addon1">
+                            <option> </option>
+                            <option value="Absent"> Absent</option>
+                            <option value="Cash Advance"> Cash Advance</option>
+                            <option value="Leave"> Leave</option>
+                          </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">From:</span>
+                        <input type="date" class="form-control from" id="basic-url" aria-label="From" aria-describedby="basic-addon3">
+                        </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">to:</span>
+                        <input type="date" class="form-control to" id="basic-url" aria-label="To" aria-describedby="basic-addon3">
+                    </div>
+
+                    <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Reason</span>
+                    <textarea class="form-control reason" aria-label="Reason"></textarea>
+                
+                    </div>
+
+                    <h5 id="error"></h5>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="add">Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
   </body>
-    
 
 <script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
@@ -141,4 +182,5 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.bundle.min.js" integrity="sha512-ndrrR94PW3ckaAvvWrAzRi5JWjF71/Pw7TlSo6judANOFCmz0d+0YE+qIGamRRSnVzSvIyGs4BTtyFMm3MT/cg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/sidebar.js"></script>
+  <script src="js/employee-request.js"></script>
   </html>   

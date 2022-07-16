@@ -61,13 +61,14 @@
                                 <div class="table-responsive">
                                         <table id="tb" class="table">
                 <tr>
-                    <th scope="col">Salary ID</th>
-                    <th scope="col">Employee ID</th>
-                    <th scope="col">Allowance ID</th>
-                    <th scope="col">Deduction ID</th>
-                    <th scope="col">Salary Status</th>
-                    <th scope="col">Salary_date Created</th>
-                    <th scope="col">Salary_date Updated</th>
+                    <th scope="col">Employee</th>
+                    <th scope="col">Allowance Name</th>
+                    <th scope="col">Allowance Amount</th>
+                    <th scope="col">Deduction Name</th>
+                    <th scope="col">Deduction Amount</th>
+                    <th scope="col">Total Salary </th>
+                    <th scope="col">Date Range</th>
+                    <th scope="col">Date Payroll Released</th>
                 </tr>
             </thead>
             <tbody>
@@ -111,7 +112,7 @@
             }
             ?>
             </tbody>
-            <caption class="ps-2">Number of times access: <?php echo $rowcount; ?></caption>
+            <caption class="ps-2">Number of payroll processed: <?php echo $rowcount; ?></caption>
         </table>
     </div>
 

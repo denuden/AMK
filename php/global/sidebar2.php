@@ -3,7 +3,6 @@
      $curPageName = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);  
 ?>
 
-<?php require_once 'php/config/config.php';   ?>
 
 <head>
 
@@ -86,7 +85,7 @@
                                  
        
 
-                               <strong><?php echo htmlspecialchars($_SESSION['name']); ?></strong>
+                               <strong><?php echo htmlspecialchars($_SESSION['name']); ?> </strong>
 
                                    <i class="ti-angle-down"></i>
                                </a>

@@ -65,6 +65,7 @@
                     <th scope="col">Allowance Name</th>
                     <th scope="col">Allowance Description</th>
                     <th scope="col">Allowance Amount</th>
+                    <th scope="col">Action</th>
                     <th scope="col"></th>
           
                 </tr>

@@ -60,7 +60,7 @@
                     <th scope="col">Account ID</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
-                    <th scope="col">Salary Status</th>
+                    <th scope="col">Salary</th>
                     <th scope="col">Deduction Description</th>
                     <th scope="col">Deduction Amount</th>
                     <th scope="col">Allowance</th>
@@ -80,7 +80,7 @@
               a.employee_id
               FROM access_history_tbl a
               LEFT JOIN employee_tbl e on a.employee_id = e.id
-               ORDER BY date DESC";
+               ORDER BY date DESC"; 
 
               $query = $dbh -> query($sql);
               $results=$query->fetchAll(PDO::FETCH_ASSOC);

@@ -50,7 +50,7 @@ if (isset($key)) {
     $_SESSION['employeeid']= $row['id'];
     $_SESSION['username']= $row['emp_username'];
     $_SESSION['key']= $row['unique_key'];
-    $_SESSION['name']= $row['firstname'];
+    $_SESSION['name']= $row['firstname'] . " " . $row ['lastname'];
     $error = ['success' => 'success'];
     echo json_encode($error);
     exit();
