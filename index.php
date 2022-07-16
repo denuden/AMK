@@ -36,7 +36,7 @@
   <body>
     <!--  SIDE BAR -->
 
-        <?php include_once "php/global/sidebar.php"?>
+    <?php include_once "php/global/sidebar.php"?>
 
         <div class="pcoded-content">
                         <div class="pcoded-inner-content">

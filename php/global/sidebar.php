@@ -78,7 +78,7 @@
                                </a>
                            </li>
                            <li class="user-profile header-notification">
-                               <a href="#!">
+                               <a href="#">
                              
                                <img src="https://static.vecteezy.com/system/resources/previews/002/275/847/original/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg" alt="" width="40" height="40" class="rounded-circle me-2">
                                  <strong>Admin</strong>
@@ -88,7 +88,7 @@
                                <ul class="show-notification profile-notification">
                                    <li>
                                        <a href="php/logout.php">
-                                <li><a class="dropdown-item" href="#" id="printableArea" onclick="printDiv('printableArea')">Key: <?php echo $_SESSION['key'];?></a></li>
+                                <li><a class="dropdown-item" style="padding-top:5px;" id="printableArea"  onclick="printDiv('printableArea')"  href="#" >Key: <?php echo $_SESSION['key'];?></a></li>
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="php/logout">Sign out</a></li>
                                    </a>
@@ -110,12 +110,18 @@
                             
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation"></div>
                             <ul class="pcoded-item pcoded-left-item">
+
+                                           
+                                  
+                            <?php if ($curPageName == "index.php"){ ?>
                                 <li class="active">
-                                <?php if ($curPageName == "index.php"){ ?>
-                                    <a href="/AMK" class="nav-link active" aria-current="page">
-                                    <?php } else { ?>
+                                    <?php } else { ?>  
+                                        <li>
+                                        <?php } ?>
+                       
+        
                                 <a href="/AMK" class="nav-link link-dark" aria-current="page">
-                                            <?php } ?>
+                                        
                                         <span class="pcoded-micon"><i class="fa-solid fa-house"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Panel</span>
                                         <span class="pcoded-mcaret"></span>
@@ -125,45 +131,62 @@
                                 </li>
                             </ul>
                             <ul class="pcoded-item pcoded-left-item">
-                            <li>
+
                             <?php if ($curPageName == "admin-payroll-manage.php"){ ?>
-                                      <a href="/AMK/admin-payroll-manage.php" class="nav-link active" aria-current="page">
-                                    <?php } else { ?>
-                                <a href="/AMK/admin-payroll-manage.php" class="nav-link link-dark" aria-current="page">
-                                    <?php } ?>
+                                <li class="active">
+                                    <?php } else { ?>  
+                                        <li>
+                                        <?php } ?>
+                       
+
+                                <a href="/AMK/admin-payroll-manage" class="nav-link link-dark" aria-current="page">
+                            
                                             <span class="pcoded-micon"><i class="fa-solid fa-money-check-dollar"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Payroll</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    <li>
-                                    <?php if ($curPageName == "admin-allowance-manage.php"){ ?>
-                                    <a href="/AMK/admin-allowance-manage.php" class="nav-link active" aria-current="page">
-                                <?php } else { ?>
-                                    <a href="/AMK/admin-allowance-manage.php" class="nav-link link-dark" aria-current="page">
-                                <?php } ?>
+
+                                        
+                            <?php if ($curPageName == "admin-allowance-manage.php"){ ?>
+                                <li class="active">
+                                    <?php } else { ?>  
+                                        <li>
+                                        <?php } ?>
+                       
+                                    <a href="/AMK/admin-allowance-manage" class="nav-link link-dark" aria-current="page">
+                           
                                             <span class="pcoded-micon"><i class="fa-solid fa-coins"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main"> Allowance</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <?php if ($curPageName == "admin-deduction-manage.php"){ ?>
-                                        <a href="/AMK/admin-deduction-manage.php" class="nav-link active" aria-current="page">
-                                        <?php } else { ?>
-                                            <a href="/AMK/admin-deduction-manage.php" class="nav-link link-dark" aria-current="page">
+
+
+                                    <?php if ($curPageName == "admin-deduction-manage.php"){ ?>
+                                <li class="active">
+                                    <?php } else { ?>  
+                                        <li>
                                         <?php } ?>
+                    
+                                            <a href="/AMK/admin-deduction-manage" class="nav-link link-dark" aria-current="page">
+                                    
                                             <span class="pcoded-micon"><i class="fa-solid fa-hand-holding-dollar"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Deduction</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                        
+                                  
+                                    <?php if ($curPageName == "admin-employee-manage.php"){ ?>
+                                <li class="active">
+                                    <?php } else { ?>  
                                         <li>
-                                            <?php if ($curPageName == "admin-employee-manage.php"){ ?>
-                                            <a href="/AMK/admin-employee-manage" class="nav-link active" aria-current="page">
-                                        <?php } else { ?>
-                                            <a href="/AMK/admin-employee-manage" class="nav-link link-dark" aria-current="page">
                                         <?php } ?>
+
+
+                            
+                                            <a href="/AMK/admin-employee-manage" class="nav-link link-dark" aria-current="page">
+                                 
 
                                                 <span class="pcoded-micon"><i class="fa-solid fa-user-tie"></i><b>D</b></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.dash.main">Employee</span>
