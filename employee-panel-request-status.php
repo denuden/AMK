@@ -66,6 +66,7 @@
                 <th scope="col">To</th>
                 <th scope="col">Reason</th>
                 <th scope="col">Status</th>
+                <th scope="col">Date Requested</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,7 +76,8 @@
               $sql ="SELECT 
               *
               FROM deduction_tbl
-               ORDER BY id DESC";
+              WHERE employee_id = '". $_SESSION['employeeid']."'
+               ORDER BY date_requested DESC";
 
               $query = $dbh -> query($sql);
               $results=$query->fetchAll(PDO::FETCH_ASSOC);
@@ -89,7 +91,15 @@
                     <td><?php echo htmlspecialchars($item['start'])?></td>
                     <td><?php echo htmlspecialchars($item['until'])?></td>
                     <td><?php echo htmlspecialchars($item['reason'])?></td>
-                    <td>Ikaw na bahala von</td>
+                    <td><?php echo htmlspecialchars($item['status'])?></td>
+                    <td>
+                    <?php
+                      $date = date_create(htmlspecialchars($item['date_requested']));
+                      $formattedDate = date_format($date, 'D M j-Y, g:i a');
+                      echo $formattedDate;
+                    ?>
+                    </td>
+                    </td>
                 </tr>
                 <?php          
                 }

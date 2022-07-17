@@ -144,7 +144,7 @@
                                         <?php } ?>
                        
 
-                                <a href="/AMK/employee-panel-request-status.php" class="nav-link link-dark" aria-current="page">
+                                <a href="/AMK/employee-panel-request-status" class="nav-link link-dark" aria-current="page">
                             
                                             <span class="pcoded-micon"><i class="fa-solid fa-money-check-dollar"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Request</span>

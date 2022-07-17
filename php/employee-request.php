@@ -1,7 +1,7 @@
 <?php
 
 require_once 'config/config.php';
-
+session_start();
 $mode= $_POST["mode"];
 $from = $_POST["from"];
 $to = $_POST["to"];
@@ -15,10 +15,10 @@ if (isset($mode)) {
         exit();
     } else {
      
-                $sql = "INSERT INTO deduction_tbl (mode, start, until, reason) VALUES (?,?,?,?)";
+                $sql = "INSERT INTO deduction_tbl (employee_id,mode, start, until, reason) VALUES (?,?,?,?,?)";
                 $stmt = $dbh->prepare($sql);
 
-                $stmt->execute([$mode, $from, $to, $reason, ]);
+                $stmt->execute([$_SESSION['employeeid'],$mode, $from, $to, $reason, ]);
 
                 $error = ['success' => 'success'];
                 echo json_encode($error);

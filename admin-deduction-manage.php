@@ -60,12 +60,14 @@
                                 <div class="table-responsive">
                                         <table id="tb" class="table">
                 <tr>
-                    <th scope="col">Mode</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Deduction Description </th>
+                    <th scope="col">Type of Request</th>
+                    <th scope="col">Reason </th>
+                    <th scope="col">Date Range</th>
+                    <th scope="col">Date Requested</th>
                     <th scope="col">Deduction Amount</th>
+                    <th scope="col">Status</th>
+
                     <th scope="col">Fullname</th>
-                    <th scope="col">Username</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -74,33 +76,39 @@
                 <?php 
               require_once "php/config/config.php";
               $sql ="SELECT 
-              a.mode as mode, a.start as start, a.until as until, a.reason as reason,
-              b.firstname as name, b.lastname as lname, b.emp_username as usn, b.id
-              FROM  employee_tbl b  LEFT JOIN deduction_tbl a on b.id = a.id
+              a.mode as mode, a.start as start, a.until as until, a.reason as reason,a.date_requested,
+              a.status,b.firstname as name, b.lastname as lname, b.emp_username as usn, b.id
+              FROM  deduction_tbl a  LEFT JOIN employee_tbl b on a.employee_id = b.id
                ORDER BY id DESC";
 
               $query = $dbh -> query($sql);
               $results=$query->fetchAll(PDO::FETCH_ASSOC);
               $rowcount=$query->rowCount();
 
-              if ($rowcount > 0) {
+              if ($rowcount > 0) {  
                 foreach ($results as $item) {
            ?>
                 <tr>
                     <td><?php echo htmlspecialchars($item['mode'])?></td>
-                    <td><?php echo htmlspecialchars($item['start'] . " to " . $item['until'] )?></td>
                     <td><?php echo htmlspecialchars($item['reason'])?></td>
-                    <td> </td>
-                    <td><?php echo htmlspecialchars($item['name'] . "  " . $item['lname'] )?></td>
-                    <td><?php echo htmlspecialchars($item['usn'])?></td>
+                    <td><?php echo htmlspecialchars($item['start'] . " to " . $item['until'] )?></td>
                     <td>
-                        <div class="d-flex justify-content-evenly w-100">
-                            <i class="fa-solid fa-pen edit pointer"
-                             data-bs-toggle="modal" data-bs-target="#staticBackdrop" 
-                             data-id = "<?php echo htmlspecialchars($item['id'])?>"
-                             style="font-size: 22px;"></i>
-                            <a class="fa-solid fa-trash delete pointer" style="font-size: 22px;"
-                            href="php/delete-allowance/delete-allowance-confirmation.php?id=<?php echo htmlspecialchars($item['id'])?>"></a>
+                    <?php
+                      $date = date_create(htmlspecialchars($item['date_requested']));
+                      $formattedDate = date_format($date, 'D M j-Y, g:i a');
+                      echo $formattedDate;
+                    ?>
+                    </td>
+                  
+
+                    <td> </td>
+                    <td><?php echo htmlspecialchars($item['status'])?></td>
+                    <td><?php echo htmlspecialchars($item['name'] . "  " . $item['lname'] )?></td>
+                  
+                    <td>
+                        <div class="d-flex flex-column justify-content-evenly w-100">
+                        <a type="button" class="btn btn-success btn-sm" data-id = "<?php echo htmlspecialchars($item['id'])?>">Accept</a>
+                        <a type="button" class="btn btn-danger btn-sm" data-id = "<?php echo htmlspecialchars($item['id'])?>">Decline</a>
                         </div>
                     </td>
                 </tr>

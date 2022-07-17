@@ -63,7 +63,7 @@
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Username</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Date Accessed</th>
                 </tr>
             </thead>
@@ -72,15 +72,9 @@
                 <?php 
               require_once "php/config/config.php";
               $sql ="SELECT 
-              e.firstname as firstname,
-              e.lastname as lastname,
-              e.phone as phone,
-              e.emp_username as username,
-              a.date_accessed as date,
-              a.employee_id
-              FROM access_history_tbl a
-              LEFT JOIN employee_tbl e on a.employee_id = e.id
-               ORDER BY date DESC";
+                  *
+              FROM access_history_tbl 
+               ORDER BY date_accessed DESC";
 
               $query = $dbh -> query($sql);
               $results=$query->fetchAll(PDO::FETCH_ASSOC);
@@ -94,10 +88,10 @@
                     <td><?php echo htmlspecialchars($item['firstname'])?></td>
                     <td><?php echo htmlspecialchars($item['lastname'])?></td>
                     <td><?php echo htmlspecialchars($item['phone'])?></td>
-                    <td><?php echo htmlspecialchars($item['username'])?></td>
+                    <td><?php echo htmlspecialchars($item['address'])?></td>
                     <td>
                     <?php
-                      $date = date_create(htmlspecialchars($item['date']));
+                      $date = date_create(htmlspecialchars($item['date_accessed']));
                       $formattedDate = date_format($date, 'D M j-Y, g:i a');
                       echo $formattedDate;
                     ?>
