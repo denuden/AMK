@@ -10,9 +10,9 @@ $(document).ready(function () {
               method: 'POST',
               dataType: 'JSON',
               data: {
-                name: $(".name").val(),
-                description: $(".description").val(),
-                amount: $(".amount").val(),
+                position: $(".position").val(),
+                salary: $(".salary").val(),
+                allowance: $(".allowance").val(),
               },
             })
             .done(function(data) {
@@ -44,9 +44,9 @@ $(document).ready(function () {
               dataType: 'JSON',
               data: {
                 id : updateId,
-                name: $(".name").val(),
-                description: $(".description").val(),
-                amount: $(".amount").val(),
+                position: $(".position").val(),
+                salary: $(".salary").val(),
+                allowance: $(".allowance").val(),
               },
             })
             .done(function(data) {
@@ -99,9 +99,9 @@ $(document).ready(function () {
                   $('#error').text(val);
                 break;
               case 'success':
-                $(".name").val(val.name)
-               $(".description").val(val.description)
-                 $(".amount").val(val.amount)
+                $(".position").val(val.position)
+               $(".salary").val(val.salary)
+                 $(".allowance").val(val.allowance)
                 break;
             }
           });

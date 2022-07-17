@@ -91,7 +91,7 @@
                     <td><?php echo htmlspecialchars($item['start'])?></td>
                     <td><?php echo htmlspecialchars($item['until'])?></td>
                     <td><?php echo htmlspecialchars($item['reason'])?></td>
-                    <td><?php echo htmlspecialchars($item['status'])?></td>
+                    <th><?php echo htmlspecialchars($item['status'])?></th>
                     <td>
                     <?php
                       $date = date_create(htmlspecialchars($item['date_requested']));
@@ -129,6 +129,7 @@
                             <option> </option>
                             <option value="Absent"> Absent</option>
                             <option value="Cash Advance"> Cash Advance</option>
+                            <option value="Dayoff">Dayoff</option>
                             <option value="Leave"> Leave</option>
                           </select>
                     </div>

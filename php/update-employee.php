@@ -9,12 +9,15 @@ $age = $_POST["age"];
 $gender = $_POST["gender"];
 $phone = $_POST["phone"];
 $address = $_POST["address"];
+$position = $_POST["position"];
+$salary = $_POST["salary"];
+$allowance = $_POST["allowance"];
 $username = $_POST["usn"];
 $password = $_POST["pass"];
 
 if (isset($firstname)) {
     if (empty($firstname) || empty($lastname) || empty($age) || empty($gender) ||
-      empty($phone)  || empty($address) || empty($username) ||
+      empty($phone)  || empty($address) || empty($position) || empty($salary) || empty($allowance)  || empty($username) ||
       empty($password)) {
         $error = ['emptyfields' => 'Please fill in all the fields'];
         echo json_encode($error);
@@ -59,6 +62,9 @@ if (isset($firstname)) {
                  gender = ?,
                  phone = ?,
                  address = ?,
+                 position = ?, 
+                 salary = ?, 
+                 allowance = ?,
                  emp_username =?,
                  emp_password = ?,
                  first_time_login = ?
@@ -66,7 +72,7 @@ if (isset($firstname)) {
                 $stmt = $dbh->prepare($sql);
                 // hash password
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                $stmt->execute([$firstname, $lastname, $age, $gender, $phone, $address, $username, $hashedPassword, 1, $id]);
+                $stmt->execute([$firstname, $lastname, $age, $gender, $phone, $address,  $position, $salary, $allowance, $username, $hashedPassword, 1, $id]);
 
                 $error = ['success' => 'success'];
                 echo json_encode($error);
@@ -85,6 +91,9 @@ if (isset($firstname)) {
                      gender = ?,
                      phone = ?,
                      address = ?,
+                     position = ?, 
+                     salary = ?, 
+                     allowance = ?,
                      emp_username =?,
                      emp_password = ?,
                      first_time_login = ?
@@ -93,7 +102,7 @@ if (isset($firstname)) {
                     $stmt = $dbh->prepare($sql);
                     // hash password
                     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                    $stmt->execute([$firstname, $lastname, $age, $gender, $phone, $address, $username, $hashedPassword, 0, $id]);
+                    $stmt->execute([$firstname, $lastname, $age, $gender, $phone, $address,  $position, $salary, $allowance, $username, $hashedPassword, 0, $id]);
     
                     $error = ['success1' => 'success'];
                     echo json_encode($error);

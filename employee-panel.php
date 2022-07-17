@@ -57,9 +57,8 @@
                                 <div class="table-responsive">
                                         <table id="tb" class="table">
                 <tr>
-                    <th scope="col">Account ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Employee</th>
                     <th scope="col">Salary</th>
                     <th scope="col">Deduction Description</th>
                     <th scope="col">Deduction Amount</th>
@@ -69,18 +68,26 @@
             </thead>
             <tbody>
             <tbody class="table-group-divider">
-                <?php 
+             <?php 
               require_once "php/config/config.php";
+
+              
+
               $sql ="SELECT 
               e.firstname as firstname,
               e.lastname as lastname,
               e.phone as phone,
+              e.position as position,
+              e.salary as salary,
+              e.allowance as allowance,
               e.emp_username as username,
-              a.date_accessed as date,
+              a.mode as mode,
+              a.deduction as deduction,
               a.employee_id
-              FROM access_history_tbl a
-              LEFT JOIN employee_tbl e on a.employee_id = e.id
-               ORDER BY date DESC"; 
+              FROM deduction_tbl a
+              LEFT JOIN employee_tbl e on a.employee_id = e.id 
+               WHERE employee_id = '". $_SESSION['employeeid']."'
+               ORDER BY employee_id DESC"; 
 
               $query = $dbh -> query($sql);
               $results=$query->fetchAll(PDO::FETCH_ASSOC);
@@ -88,24 +95,18 @@
 
               if ($rowcount > 0) {
                 foreach ($results as $item) {
-           ?>
+           ?> 
                 <tr>
-                    <th scope="row"><?php echo htmlspecialchars($item['employee_id'])?></th>
-                    <td><?php echo htmlspecialchars($item['firstname'])?></td>
-                    <td><?php echo htmlspecialchars($item['lastname'])?></td>
-                    <td><?php echo htmlspecialchars($item['phone'])?></td>
-                    <td><?php echo htmlspecialchars($item['username'])?></td>
-                    <td>
-                    <?php
-                      $date = date_create(htmlspecialchars($item['date']));
-                      $formattedDate = date_format($date, 'D M j-Y, g:i a');
-                      echo $formattedDate;
-                    ?>
-                
+                    <td><?php echo htmlspecialchars($item['position'])?></td>
+                    <td><?php echo htmlspecialchars($item['firstname'] ." ".$item['lastname'] ); ?></td>
+                    <td><?php echo htmlspecialchars($item['salary'])?></td>
+                    <td><?php echo htmlspecialchars($item['mode'])?></td>
+                    <td><?php echo htmlspecialchars($item['deduction'])?></td>  
+                    <td><?php echo htmlspecialchars($item['allowance'])?></td>     
                 </tr>
                 <?php          
-                }
-            }
+             }
+             } 
             ?>
             </tbody>
             <caption class="ps-2">Number of times access: <?php echo $rowcount; ?></caption>

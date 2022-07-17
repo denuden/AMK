@@ -42,7 +42,7 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                <h3 class="me-4">Allowance</h3>
+                                <h3 class="me-4">Allowance Status</h3>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                       class="btn btn-outline-success" id="addAllowance" style="position: absolute; margin-top: -50px;  margin-left: 80%;" >Add Allowance</button>
                                     <div class="page-body">
@@ -61,10 +61,9 @@
                                 <div class="table-responsive">
                                         <table id="tb" class="table">
                 <tr>
-                    <th scope="col">Allowance ID</th>
-                    <th scope="col">Allowance Name</th>
-                    <th scope="col">Allowance Description</th>
-                    <th scope="col">Allowance Amount</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Salary (semi-monthly)</th>
+                    <th scope="col">Allowance (per semi-monthly)</th>
                     <th scope="col">Action</th>
                     <th scope="col"></th>
           
@@ -87,10 +86,9 @@
                 foreach ($results as $item) {
            ?>
                 <tr>
-                    <th scope="row"><?php echo htmlspecialchars($item['id'])?></th>
-                    <td><?php echo htmlspecialchars($item['name'])?></td>
-                    <td><?php echo htmlspecialchars($item['description'])?></td>
-                    <td><?php echo htmlspecialchars($item['amount'])?></td>
+                    <td><?php echo htmlspecialchars($item['position'])?></td>
+                    <td><?php echo htmlspecialchars($item['salary'])?></td>
+                    <td><?php echo htmlspecialchars($item['allowance'])?></td>
                     <td>
                         <div class="d-flex justify-content-evenly w-100">
                             <i class="fa-solid fa-pen edit pointer"
@@ -126,18 +124,16 @@
                 <div class="modal-body">
                   
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control name" placeholder="Name" aria-label="Name"
+                        <input type="text" class="form-control position" placeholder="Position" aria-label="Position"
                             aria-describedby="basic-addon1">
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text">Description</span>
-                        <textarea class="form-control description" aria-label="Description"></textarea>
+                        <input  type="number" class="form-control salary" placeholder="Salary per semi-monthly" aria-label="Salary">
                     </div>
 
                     <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">₱</span>
-                        <input type="number" class="form-control amount" id="basic-url" placeholder="Amount" aria-label="Amount" aria-describedby="basic-addon3">
+                        <input type="number" class="form-control allowance" id="basic-url" placeholder="Allowance per semi-monthly" aria-label="Allowance" aria-describedby="basic-addon3">
                     </div>
 
                     <h5 id="error"></h5>

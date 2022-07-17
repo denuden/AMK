@@ -16,6 +16,9 @@ $(document).ready(function () {
               age: $(".age").val(),
               gender: $(".gender").val(),
               address: $(".address").val(),
+              position: $(".position").val(),
+              salary: $(".salary").val(),
+              allowance: $(".allowance").val(),
               usn: $(".usn").val(),
               pass: $(".pass").val(),
             },
@@ -64,6 +67,9 @@ $(document).ready(function () {
               age: $(".age").val(),
               gender: $(".gender").val(),
               address: $(".address").val(),
+              position: $(".position").val(),
+              salary: $(".salary").val(),
+              allowance: $(".allowance").val(),
               usn: $(".usn").val(),
               pass: $(".pass").val(),
             },
@@ -132,6 +138,9 @@ $(document).ready(function () {
                $(".age").val(val.age)
               $(".gender").val(val.gender)
               $(".address").val(val.address)
+              $(".position").val(val.position)
+              $(".salary").val(val.salary)
+              $(".allowance").val(val.allowance)
               $(".usn").val(val.emp_username)
               $(".pass").val()
               break;

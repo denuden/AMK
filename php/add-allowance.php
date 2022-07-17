@@ -2,22 +2,22 @@
 
 require_once 'config/config.php';
 
-$name = $_POST["name"];
-$description = $_POST["description"];
-$amount = $_POST["amount"];
+$position = $_POST["position"];
+$salary = $_POST["salary"];
+$allowance = $_POST["allowance"];
 
-if (isset($name)) {
-    if (empty($name) || empty($description) || empty($amount)) {
+if (isset($position)) {
+    if (empty($position) || empty($salary) || empty($allowance)) {
         $error = ['emptyfields' => 'Please fill in all the fields'];
         echo json_encode($error);
         exit();
     } else {
 
 
-            $sql = "SELECT name FROM allowance_tbl WHERE name=?"; //checks if name is taken
+            $sql = "SELECT position  FROM allowance_tbl WHERE position=?"; //checks if name is taken
             $stmt = $dbh->prepare($sql);
 
-            $stmt->execute([$name]);
+            $stmt->execute([$position]);
             $rowCount = $stmt->rowCount(); //get row count
 
             if ($rowCount > 0) {
@@ -26,10 +26,10 @@ if (isset($name)) {
                 exit();
             } else {
 
-                $sql = "INSERT INTO allowance_tbl (name, description, amount) VALUES (?,?,?)";
+                $sql = "INSERT INTO allowance_tbl (position, salary, allowance) VALUES (?,?,?)";
                 $stmt = $dbh->prepare($sql);
 
-                $stmt->execute([$name, $description, $amount]);
+                $stmt->execute([$position , $salary , $allowance]);
 
                 $error = ['success' => 'success'];
                 echo json_encode($error);

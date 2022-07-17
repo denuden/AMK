@@ -62,6 +62,9 @@
                     <th scope="col">#ID</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Allowance</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Age</th>
                     <th scope="col">Gender</th>
@@ -84,6 +87,9 @@
                     <th scope="row"><?php echo htmlspecialchars($item['id'])?></th>
                     <td><?php echo htmlspecialchars($item['firstname'])?></td>
                     <td><?php echo htmlspecialchars($item['lastname'])?></td>
+                    <td><?php echo htmlspecialchars($item['position'])?></td>
+                    <td><?php echo htmlspecialchars($item['salary'])?></td>
+                    <td><?php echo htmlspecialchars($item['allowance'])?></td>
                     <td><?php echo htmlspecialchars($item['phone'])?></td>
                     <td><?php echo htmlspecialchars($item['age'])?></td>
                     <td><?php echo htmlspecialchars($item['gender'])?></td>
@@ -130,6 +136,8 @@
                             aria-label="Last Name" aria-describedby="basic-addon2">
                     </div>
 
+                
+
                     <div class="input-group mb-3">
                         <input type="text" class="form-control phone" id="basic-url" placeholder="Phone" aria-label="Phone" aria-describedby="basic-addon3">
                     </div>
@@ -138,13 +146,67 @@
                     <div class="input-group mb-3">
                         <input type="number" class="form-control age" placeholder="Age" aria-label="Age" maxlength="3"
                         onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;" >
-                        <span class="input-group-text"> </span>
-                        <input type="text" class="form-control gender" placeholder="Gender" aria-label="Gender">
+                        <span class="input-group-text">Sex</span>
+                        <select  class="form-control gender"  aria-label="Gender">
+                        <option> </option>
+                        <option value="Female">Female </option>
+                        <option value="Male">Male</option>
+                        </select>
                     </div>
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">Address</span>
                         <textarea class="form-control address" aria-label="Address"></textarea>
+                        
+                    </div>
+
+                 <?php 
+              require_once "php/config/config.php";
+
+              $sql ="SELECT * FROM allowance_tbl";
+              $query = $dbh -> query($sql);
+              $results=$query->fetchAll(PDO::FETCH_ASSOC);
+              $rowcount=$query->rowCount();
+                ?>
+                    <div class="input-group mb-3">
+                    <span class="input-group-text">Position</span>
+                    <select type="text" class="form-control position" placeholder="Position" aria-label="Position" >
+                    <option> </option>
+                    <?php if ($rowcount > 0) {
+                             foreach ($results as $item2) {
+                    ?>
+                    <option value="<?php echo htmlspecialchars($item2['position'])?>">
+                    <?php echo htmlspecialchars($item2['position'])?>
+                    </option>  
+                    <?php }} ?>   
+                    </select>
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                    <span class="input-group-text"> Salary</span>
+                        <select  class="form-control salary" placeholder="Salary" aria-label="Salary">
+                        <option> </option>
+                    <?php if ($rowcount > 0) {
+                             foreach ($results as $item3) {
+                    ?>
+                    <option value="<?php echo htmlspecialchars($item3['salary'])?>">
+                    <?php echo htmlspecialchars($item3['salary'])?>
+                    </option>  
+                    <?php }} ?>   
+                    </select>
+                    
+                   
+                    <span class="input-group-text"> Allowance</span>
+                        <select  class="form-control allowance" placeholder="Allowance" aria-label="Allowance">
+                        <option> </option>
+                    <?php if ($rowcount > 0) {
+                             foreach ($results as $item4) {
+                    ?>
+                    <option value="<?php echo htmlspecialchars($item4['allowance'])?>">
+                    <?php echo htmlspecialchars($item4['allowance'])?>
+                    </option>  
+                    <?php }} ?>   
+                    </select>
                     </div>
 
                     <div class="input-group mb-3">

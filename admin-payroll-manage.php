@@ -62,7 +62,8 @@
                                         <table id="tb" class="table">
                 <tr>
                     <th scope="col">Employee</th>
-                    <th scope="col">Allowance Name</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Allowance </th>
                     <th scope="col">Allowance Amount</th>
                     <th scope="col">Deduction Name</th>
                     <th scope="col">Deduction Amount</th>
