@@ -108,8 +108,8 @@
                                 <td>
                                   <ul class="list-group list-group-flush">
                                     <?php 
-                      foreach (json_decode($item['deductions']) as $row) {
-                        ?>
+                               foreach (json_decode($item['deductions']) as $row) {
+                         ?>
                                     <li class="list-group-item">
                                       <?php echo htmlspecialchars($row->mode . ': ₱' . $row->deduction)?></li>
                                     <?php } ?>
@@ -127,7 +127,8 @@
                       $formattedDate = date_format($date, 'D M j-Y, g:i a');
                       echo $formattedDate;
                     ?>
-
+                                        </td>
+                                      
                               </tr>
                               <?php          
                 }

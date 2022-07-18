@@ -41,12 +41,11 @@ if (isset($_GET['id'])) {
         if ($employeeCount > 0) {
             $row = $query->fetch();
 
-
-            $sql = "INSERT INTO payroll_tbl (fullname,position ,salary, allowance_amount, deductions, total_deduction_amount, total_salary, start, until) VALUES (?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO payroll_tbl (employee_id,fullname,position ,salary, allowance_amount, deductions, total_deduction_amount, total_salary, start, until) VALUES (?,?,?,?,?,?,?,?,?,?)";
             $stmt = $dbh->prepare($sql);
 
             $fullname = $row['firstname'] . ' ' . $row['lastname'];
-            $stmt->execute([$fullname,$row['position'], $row['salary'], $row['allowance'], $deductions, $total_deduction, $total_salary, $start, $until]);
+            $stmt->execute([$row['id'],$fullname,$row['position'], $row['salary'], $row['allowance'], $deductions, $total_deduction, $total_salary, $start, $until]);
 
             $error = ['success' => 'success'];
             echo json_encode($error);

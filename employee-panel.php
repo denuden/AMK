@@ -61,8 +61,8 @@
                     <th scope="col">Employee</th>
                     <th scope="col">Salary</th>
                     <th scope="col">Deduction Description</th>
-                    <th scope="col">Deduction Amount</th>
                     <th scope="col">Allowance</th>
+                    <th scope="col">Deduction Amount</th>
                     <th scope="col">Total Salary</th>
                 </tr>
             </thead>
@@ -70,8 +70,6 @@
             <tbody class="table-group-divider">
              <?php 
               require_once "php/config/config.php";
-
-              
 
               $sql ="SELECT 
               e.firstname as firstname,
@@ -81,10 +79,11 @@
               e.salary as salary,
               e.allowance as allowance,
               e.emp_username as username,
-              a.mode as mode,
-              a.deduction as deduction,
+              a.deductions as deductions,
+              a.total_deduction_amount as total_deduction_amount,
+              a.total_salary as total_salary,
               a.employee_id
-              FROM deduction_tbl a
+              FROM payroll_tbl a
               LEFT JOIN employee_tbl e on a.employee_id = e.id 
                WHERE employee_id = '". $_SESSION['employeeid']."'
                ORDER BY employee_id DESC"; 
@@ -100,13 +99,26 @@
                     <td><?php echo htmlspecialchars($item['position'])?></td>
                     <td><?php echo htmlspecialchars($item['firstname'] ." ".$item['lastname'] ); ?></td>
                     <td><?php echo htmlspecialchars($item['salary'])?></td>
-                    <td><?php echo htmlspecialchars($item['mode'])?></td>
-                    <td><?php echo htmlspecialchars($item['deduction'])?></td>  
-                    <td><?php echo htmlspecialchars($item['allowance'])?></td>     
+                    <td>
+                                  <ul class="list-group list-group-flush">
+                                    <?php 
+                               foreach (json_decode($item['deductions']) as $row) {
+                         ?>
+                                    <li class="list-group-item">
+                                      <?php echo htmlspecialchars($row->mode . ': ₱' . $row->deduction)?></li>
+                                    <?php } ?>
+
+
+                                  </ul>
+                                </td>
+
+                    <td><?php echo htmlspecialchars($item['allowance'])?></td>  
+                    <td><?php echo htmlspecialchars($item['total_deduction_amount'])?></td>  
+                    <td><?php echo htmlspecialchars($item['total_salary'])?></td>   
                 </tr>
+           
                 <?php          
-             }
-             } 
+             }} 
             ?>
             </tbody>
             <caption class="ps-2">Number of times access: <?php echo $rowcount; ?></caption>
@@ -141,4 +153,5 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.bundle.min.js" integrity="sha512-ndrrR94PW3ckaAvvWrAzRi5JWjF71/Pw7TlSo6judANOFCmz0d+0YE+qIGamRRSnVzSvIyGs4BTtyFMm3MT/cg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/sidebar.js"></script>
+
   </html>   
