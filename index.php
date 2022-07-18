@@ -42,7 +42,16 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-                                <h3 class="me-4">Access Logs</h3>
+
+                                  
+                          <div class="d-flex justify-content-between mb-2">
+                              <h3 class="me-4">Access Logs</h3>
+                              <div class="d-flex">
+                                  <button type="button" onclick="printTable('tablePrintArea')"
+                                      class="btn btn-info">Print</button>
+                              </div>
+                          </div>
+
                                     <div class="page-body">
                                       <div class="row">
 
@@ -56,7 +65,7 @@
                             <div class="tab-content card-block">
                                 <div class="tab-pane active" id="home3" role="tabpanel">
                                     <br>
-                                <div class="table-responsive">
+                                <div class="table-responsive" id="tablePrintArea">
                                         <table id="tb" class="table">
                 <tr>
                     <th scope="col">Account ID</th>
@@ -133,4 +142,5 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.bundle.min.js" integrity="sha512-ndrrR94PW3ckaAvvWrAzRi5JWjF71/Pw7TlSo6judANOFCmz0d+0YE+qIGamRRSnVzSvIyGs4BTtyFMm3MT/cg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/sidebar.js"></script>
+  <script src="js/tablePrint.js"></script>
   </html>   
