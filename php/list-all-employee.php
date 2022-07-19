@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
         echo json_encode(['success' => $row]);
         exit();
     } else{
-        $error = ["unavailable" => "Unavalable ath the moment"];
+        $error = ["unavailable" => "Unavalable at the moment : Unknown Employee"];
         echo json_encode($error);
         exit();
     }

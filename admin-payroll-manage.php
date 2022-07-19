@@ -109,16 +109,25 @@
                                 <td>₱ <?php echo htmlspecialchars($item['salary'])?></td>
                                 <td>₱ <?php echo htmlspecialchars($item['allowance_amount'])?></td>
 
-                                <td>
+                                <td style="padding:0px">
                                   <ul class="list-group list-group-flush">
+                               
+                             
                                     <?php 
-                               foreach (json_decode($item['deductions']) as $row) {
-                         ?>
-                                    <li class="list-group-item">
-                                      <?php echo htmlspecialchars($row->mode . ': ₱' . $row->deduction)?></li>
-                                    <?php } ?>
+                                    if(sizeof(json_decode($item['deductions'])) <=0){ 
+                                      ?>
+                                      <li class="list-group-item">  
+                                        <?php  echo htmlspecialchars("None");?>
+                                      </li>
+                                      <?php }else { ?>
+                            
+                                <?php foreach (json_decode($item['deductions']) as $row) { ?>      
+                                  <li class="list-group-item" >                           
+                                      <?php echo htmlspecialchars($row->mode . ': ₱' . $row->deduction)?>
+                                  </li>
+                                <?php }} ?>
 
-
+                                
                                   </ul>
                                 </td>
 

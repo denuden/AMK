@@ -26,9 +26,8 @@ if (isset($_GET['id'])) {
             $rows = $query->fetchAll();
             $deductions = json_encode($rows);
         } else{
-            $error = ["unavailable" => "Unavalable at the moment"];
-            echo json_encode($error);
-            exit();
+            $row = array();
+            $deductions = json_encode($row);
         }
 
 
@@ -53,7 +52,7 @@ if (isset($_GET['id'])) {
 
 
         } else {
-            $error = ["unavailable" => "Unavalable ath the moment"];
+            $error = ["unavailable" => "Unavalable at the moment : Unknown Employee"];
             echo json_encode($error);
             exit();
         }

@@ -65,18 +65,23 @@ $(document).ready(function () {
                             '</li>' +
                             '</li>');
                         })
-                        $('.deduction-head').text('Deductions');
+                     
            
       
                         total_salary = parseInt(employee_salary) - parseInt(total_deduction)
                         if (parseInt(total_salary) < 0) {
                           total_salary = "-Negative"
                         }
+                        if(total_deduction != 0){
+                          $('.deduction-head').text('Deductions');
+                          $('.deductions').append('<li class=" list-group-item ps-2">Total Deduction Amount: ' + ': ₱ ' + total_deduction)
+                       
+                        }
+                   
 
 
-                        $('.deductions').append('<li class=" list-group-item ps-2">Total Deduction Amount: ' + ': ₱ ' + total_deduction)
-
-                        $('.total-salary').append(
+                    
+                      $('.total-salary').append(
                           '<li class="list-group-item bg-success text-white fw-bold">Total Salary: ₱ ' +
                           total_salary +
                           '</li>')

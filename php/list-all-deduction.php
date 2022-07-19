@@ -14,7 +14,8 @@ if (isset($_GET['id'])) {
         echo json_encode(['success' => $row]);
         exit();
     } else{
-        $error = ["unavailable" => "Unavalable at the moment"];
+        $row = array();
+        $error = ["success" => $row];
         echo json_encode($error);
         exit();
     }
