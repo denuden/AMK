@@ -8,7 +8,7 @@ $amount = $_POST['amount'];
 
 
 if (isset($status)) {
-        $sql = "UPDATE deduction_tbl SET status = ?, deduction = ? WHERE employee_id = ?";
+        $sql = "UPDATE deduction_tbl SET status = ?, deduction = ? WHERE id = ?";
         $stmt = $dbh->prepare($sql);
 
         $stmt->execute([$status, $amount, $id ]);

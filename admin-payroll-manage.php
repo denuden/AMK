@@ -100,7 +100,11 @@
                 foreach ($results as $item) {
            ?>
                               <tr>
-                                <th scope="row"><?php echo htmlspecialchars($item['fullname'])?></th>
+                                <th scope="row">
+                                <i class="fa-solid fa-print printIndiv" 
+                                data-id="<?php echo htmlspecialchars($item['id'])?>" 
+                                style="font-size: 22px; cursor:pointer;"></i>  
+                                <?php echo htmlspecialchars($item['fullname'])?></th>
                                 <td><?php echo htmlspecialchars($item['position'])?></td>
                                 <td>₱ <?php echo htmlspecialchars($item['salary'])?></td>
                                 <td>₱ <?php echo htmlspecialchars($item['allowance_amount'])?></td>
@@ -123,10 +127,10 @@
                                 <td><?php echo htmlspecialchars($item['start'] . ' to ' . $item['until'])?></td>
                                 <td>
                                   <?php
-                      $date = date_create(htmlspecialchars($item['date_released']));
-                      $formattedDate = date_format($date, 'D M j-Y, g:i a');
-                      echo $formattedDate;
-                    ?>
+                                    $date = date_create(htmlspecialchars($item['date_released']));
+                                    $formattedDate = date_format($date, 'D M j-Y, g:i a');
+                                    echo $formattedDate;
+                                  ?>
                                         </td>
                                       
                               </tr>

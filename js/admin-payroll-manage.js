@@ -4,6 +4,11 @@ $(document).ready(function () {
   let total_salary = 0
   let employeeid = -1;
   let employee_salary = 0
+  
+  // for print  individual payroll
+  let arr= []
+  let deduction = []
+  let deductionName = []
   // ON EMPLOYEE CAHNGE
   $('.modal-body').on('change', '.employee', function () {
 
@@ -31,7 +36,6 @@ $(document).ready(function () {
               $(".salary").val(val.salary)
               $(".allowance").val(val.allowance)
 
-
               // get deductions
               // DEDUCTIONS GET BY EMPLOYEE ID
               $.ajax({
@@ -54,7 +58,7 @@ $(document).ready(function () {
                         $('#error').text("")
                         // loop all deductions
                         $.map(val, function (val, index) {
-                          console.log(val);
+
                           total_deduction += parseInt(val.deduction)
                           $('.deductions').append(
                             '<li class="list-group-item">' + val.mode + ' : ₱ ' + val.deduction +
@@ -62,12 +66,13 @@ $(document).ready(function () {
                             '</li>');
                         })
                         $('.deduction-head').text('Deductions');
-                        console.log(employee_salary);
-                        console.log(total_deduction);
+           
+      
                         total_salary = parseInt(employee_salary) - parseInt(total_deduction)
                         if (parseInt(total_salary) < 0) {
                           total_salary = "-Negative"
                         }
+
 
                         $('.deductions').append('<li class=" list-group-item ps-2">Total Deduction Amount: ' + ': ₱ ' + total_deduction)
 
@@ -131,5 +136,13 @@ $(document).ready(function () {
       .fail(function (xhr) {
         console.log("error" + xhr.responseText + xhr.status);
       });
+  });
+
+
+
+  // PRINT
+  $('.printIndiv').click(function(event) {
+    let itemReference = $(this)
+    window.location.replace('/AMK/receipt?receiptid=' +itemReference.attr('data-id'));
   });
 });

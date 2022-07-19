@@ -87,7 +87,7 @@
                                                             <?php 
               require_once "php/config/config.php";
               $sql ="SELECT 
-              a.mode as mode, a.start as start, a.until as until, a.reason as reason,a.date_requested,
+              a.mode as mode, a.start as start, a.until as until, a.reason as reason,a.date_requested, a.id as deduction_id,
               a.status, a.deduction, a.employee_id ,b.firstname as name, b.lastname as lname, b.emp_username as usn, b.id
               FROM  deduction_tbl a  LEFT JOIN employee_tbl b on a.employee_id = b.id
                ORDER BY id DESC";
@@ -126,22 +126,22 @@
                                                                         <?php if ($item['status'] != "Pending") { ?>
                                                                         <button type="button" disabled
                                                                             class="btn btn-success btn-sm "
-                                                                            data-id="<?php echo htmlspecialchars($item['employee_id']);?>">Accept</button>
+                                                                            data-id="<?php echo htmlspecialchars($item['deduction_id']);?>">Accept</button>
 
                                                                         <button type="button" disabled
                                                                             class="btn btn-danger btn-sm decline "
-                                                                            data-id="<?php echo htmlspecialchars($item['employee_id'])?>">Decline</button>
+                                                                            data-id="<?php echo htmlspecialchars($item['deduction_id'])?>">Decline</button>
                                                                         <?php } else { ?>
 
                                                                         <button type="button"
                                                                             class="btn btn-success btn-sm accept "
                                                                             data-bs-target="#staticBackdrop"
                                                                             data-bs-toggle="modal"
-                                                                            data-id="<?php echo htmlspecialchars($item['employee_id'])?>">Accept</button>
+                                                                            data-id="<?php echo htmlspecialchars($item['deduction_id'])?>">Accept</button>
 
                                                                         <button type="button"
                                                                             class="btn btn-danger btn-sm decline "
-                                                                            data-id="<?php echo htmlspecialchars($item['employee_id'])?>">Decline</button>
+                                                                            data-id="<?php echo htmlspecialchars($item['deduction_id'])?>">Decline</button>
                                                                         <?php }?>
                                                                     </div>
                                                                 </td>
