@@ -71,11 +71,11 @@
                                                 <div class="table-responsive" id="tablePrintArea">
                                                     <table id="tb" class="table">
                                                         <tr>
-                                                            <th scope="col">Type of Request</th>
+                                                            <th scope="col">Mode</th>
                                                             <th scope="col">Reason </th>
                                                             <th scope="col">Date Range</th>
                                                             <th scope="col">Date Requested</th>
-                                                            <th scope="col">Deduction Amount</th>
+                                                            <th scope="col">Mode</th>
                                                             <th scope="col">Status</th>
 
                                                             <th scope="col">Fullname</th>
@@ -143,6 +143,7 @@
                                                                             class="btn btn-danger btn-sm decline "
                                                                             data-id="<?php echo htmlspecialchars($item['deduction_id'])?>">Decline</button>
                                                                         <?php }?>
+                                                                        
                                                                     </div>
                                                                 </td>
                                                             </tr>

@@ -8,3 +8,14 @@
     z-index: 111;
 }
 
+.back{
+    margin-left: 10px;
+}
+
+.fa-trash:hover{
+    color: red;
+}
+
+.fa-print:hover{
+    color: green;
+}

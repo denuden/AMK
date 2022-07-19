@@ -128,7 +128,7 @@
                             aria-describedby="basic-addon1">
                             <option> </option>
                             <option value="Absent"> Absent</option>
-                            <option value="Cash Advance"> Cash Advance</option>
+                            <option value="Cash Advance"> CA</option>
                             <option value="Dayoff">Dayoff</option>
                             <option value="Leave"> Leave</option>
                           </select>

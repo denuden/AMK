@@ -38,7 +38,7 @@
 <body>
   <!--  SIDE BAR -->
 
-  <?php include_once "php/global/sidebar.php"?>
+  <?php include_once "php/global/sidebar-history.php"?>
 
   <div class="pcoded-content">
     <div class="pcoded-inner-content">
@@ -48,11 +48,11 @@
    
 
           <div class="d-flex justify-content-between mb-2">
-             <h3 class="me-4">Payroll</h3>
+             <h3 class="me-4">Payroll History</h3>
             <div class="d-flex">
-              <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-info me-2"
-              id="addEmployee">Add Payroll</button>
-              <a href="admin-history-payroll" > <button type="button" class="btn btn-outline-success">History</button></a>
+              <button type="button" onclick="printTab('tablePrint')"  class="btn btn-info">Print</button>
+
+            <a href="admin-payroll-manage">  <button type="button"  class="btn btn-outline-danger back">Back</button></a>
             </div>
           </div>
 
@@ -69,7 +69,7 @@
                     <div class="tab-content card-block">
                       <div class="tab-pane active" id="home3" role="tabpanel">
                         <br>
-                        <div class="table-responsive" >
+                        <div class="table-responsive" id="tablePrint">
                           <table id="tb" class="table"   >
                             <tr>
                               <th scope="col">Full Name</th>
@@ -80,8 +80,7 @@
                               <th scope="col">Total Deduction</th>
                               <th scope="col">Total Salary </th>
                               <th scope="col">Date Range</th>
-                              <th scope="col">Date Released</th>
-                              <th scope="col">Action</th>
+                              <th scope="col">Date Payroll Released</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -90,7 +89,7 @@
               require_once "php/config/config.php";
               $sql ="SELECT 
                 *
-              FROM payroll_tbl 
+              FROM payroll_history_tbl 
                ORDER BY date_released DESC";
 
               $query = $dbh -> query($sql);
@@ -130,13 +129,6 @@
                                     echo $formattedDate;
                                   ?>
                                         </td>
-                               <td><i class="fa-solid fa-print printIndiv" 
-                                data-id="<?php echo htmlspecialchars($item['id'])?>" 
-                                style="font-size: 22px; cursor:pointer;"></i> 
-                                <a class="fa-solid fa-trash delete pointer"
-                                style="font-size: 22px;"
-                                href="php/delete-payroll/delete-payroll-confirmation.php?id=<?php echo htmlspecialchars($item['id'])?>"></a>
-                               </td>
                               </tr>
                               <?php          
                 }
@@ -271,7 +263,7 @@
 <script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
 <script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
-<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/sidebar-no-responsive.js"></script>
 <script src="assets/js/vartical-demo.js"></script>
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 

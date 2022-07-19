@@ -46,6 +46,12 @@ if (isset($_GET['id'])) {
             $fullname = $row['firstname'] . ' ' . $row['lastname'];
             $stmt->execute([$row['id'],$fullname,$row['position'], $row['salary'], $row['allowance'], $deductions, $total_deduction, $total_salary, $start, $until]);
 
+            $sql = "INSERT INTO payroll_history_tbl (employee_id,fullname,position ,salary, allowance_amount, deductions, total_deduction_amount, total_salary, start, until) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            $stmt = $dbh->prepare($sql);
+
+            $fullname = $row['firstname'] . ' ' . $row['lastname'];
+            $stmt->execute([$row['id'],$fullname,$row['position'], $row['salary'], $row['allowance'], $deductions, $total_deduction, $total_salary, $start, $until]);
+
             $error = ['success' => 'success'];
             echo json_encode($error);
             exit();
