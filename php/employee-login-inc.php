@@ -33,10 +33,10 @@ if (isset($usn)) {
             $stmt->execute([1, $key, $row['id']]);
 
             // always log history
-            $sql = "INSERT INTO access_history_tbl (employee_id) VALUES (?)";
+            $sql = "INSERT INTO access_history_tbl (employee_id, firstname, lastname, phone, address) VALUES (?,?,?,?,?)";
             $stmt = $dbh->prepare($sql);
-            $stmt->execute([$row['id']]);
-
+            $stmt->execute([$row['id'], $row['firstname'], $row['lastname'], $row['phone'], $row['address']]);
+            
             $error = ['confirmation' => 'confirmation'];
             echo json_encode($error);
             exit();

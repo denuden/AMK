@@ -25,7 +25,7 @@ include "php/global/head-tag.php";
 
     <main class="form-signin w-100 m-auto form">
         <form id="confirmationAjax">
-            <img class="mb-4" src="http://cdn.onlinewebfonts.com/svg/img_363538.png" alt="" width="102">
+            <img class="mb-4 " src="http://cdn.onlinewebfonts.com/svg/img_363538.png" alt="" width="102">
             <h1 class="h3 mb-3 fw-normal">Identity Confimation</h1>
 
       
@@ -34,12 +34,16 @@ include "php/global/head-tag.php";
                     <label for="floatingInput"> Enter your given generated unique key</label>
                 </div>
 
-                <img class="mt-4 mb-2" src=" http://www.learningsuccessblog.com/files/0aainput-black.gif" alt="" width="202">
-               
-                <div class="form-floating">
-                    <input type="password" class="form-control captcha" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Type characters shown above</label>
-                </div>
+              
+                <img class="mt-4 mb-2 image"  alt="" width="340">
+                <button type="button" class="btn btn-warning mt-3 reload-captcha"><i class="fa-solid fa-arrows-rotate"></i></button>
+            
+                    <div class="form-floating">
+                        <input type="number" class="form-control captcha" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Type characters shown above</label>
+                    </div>
+
+            
                 <h5 id="error"></h5>
             <button class="w-50 btn btn-lg btn-primary" type="submit">Authenticate</button>
 

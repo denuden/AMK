@@ -34,10 +34,11 @@ include "php/global/head-tag.php";
                     <label for="floatingInput"> Enter your given generated unique key</label>
                 </div>
 
-                <img class="mt-4 mb-2" src=" http://www.learningsuccessblog.com/files/0aainput-black.gif" alt="" width="202">
-               
+                <img class="mt-4 mb-2 image"  alt="" width="340">
+                <button type="button" class="btn btn-warning mt-3 reload-captcha"><i class="fa-solid fa-arrows-rotate"></i></button>
+            
                 <div class="form-floating">
-                    <input type="password" class="form-control captcha" id="floatingPassword" placeholder="Password">
+                    <input type="number" class="form-control captcha" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Type characters shown above</label>
                 </div>
                 <h5 id="error"></h5>
