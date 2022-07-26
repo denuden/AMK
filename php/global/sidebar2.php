@@ -98,7 +98,7 @@
                                     <li><a class="dropdown-item" style="padding-top:5px;" id="printableArea"
                                             onclick="printDiv('printableArea')" href="#">Key:
                                             <?php echo $_SESSION['key'];?></a></li>
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
                                     <li><a class="dropdown-item" href="php/logout">Sign out</a></li>
                                     </a>
 
@@ -153,7 +153,7 @@
                                     aria-current="page">
 
                                     <span class="pcoded-micon"><i
-                                            class="fa-solid fa-money-check-dollar"></i><b>D</b></span>
+                                            class="fa-solid fa-message"></i><b>D</b></span>
                                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Request</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>

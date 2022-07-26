@@ -182,7 +182,7 @@
                     ?>
                                     <option data-id="<?php echo htmlspecialchars($item['id'])?>"
                                       value="<?php echo htmlspecialchars($item['firstname'] . " " . $item['lastname'])?>">
-                                      <?php echo htmlspecialchars($item['firstname'] . "s " . $item['lastname'])?>
+                                      <?php echo htmlspecialchars($item['firstname'] . " " . $item['lastname'])?>
                                     </option>
                                     <?php }} ?>
                                   </select>

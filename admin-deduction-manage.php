@@ -75,7 +75,7 @@
                                                             <th scope="col">Reason </th>
                                                             <th scope="col">Date Range</th>
                                                             <th scope="col">Date Requested</th>
-                                                            <th scope="col">Mode</th>
+                                                            <th scope="col">Deduction</th>
                                                             <th scope="col">Status</th>
 
                                                             <th scope="col">Fullname</th>
@@ -90,7 +90,7 @@
               a.mode as mode, a.start as start, a.until as until, a.reason as reason,a.date_requested, a.id as deduction_id,
               a.status, a.deduction, a.employee_id ,b.firstname as name, b.lastname as lname, b.emp_username as usn, b.id
               FROM  deduction_tbl a  LEFT JOIN employee_tbl b on a.employee_id = b.id
-               ORDER BY id DESC";
+               ORDER BY date_requested DESC";
 
               $query = $dbh -> query($sql);
               $results=$query->fetchAll(PDO::FETCH_ASSOC);

@@ -89,7 +89,7 @@
                                    <li>
                                        <a href="php/logout.php">
                                 <li><a class="dropdown-item" style="padding-top:5px;" id="printableArea"  onclick="printDiv('printableArea')"  href="#" >Key: <?php echo $_SESSION['key'];?></a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
                                 <li><a class="dropdown-item" href="php/logout">Sign out</a></li>
                                    </a>
 
