@@ -1,5 +1,5 @@
 <h1 align="center">BEMROC</h1>
-<h3 align="center">This is a simple Payroll System for the AMK Variety Store</h3>
+<h3 align="center">This is a Payroll System for the AMK Variety Store</h3>
 <div align="center">
 <img src="images/logo.png" alt="logo" width="200" height="auto" /></div
 <p align="left">
