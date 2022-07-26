@@ -40,7 +40,7 @@ This project needs the following installed to work:
 <ul>
   <li> <img src="https://cdn2.iconfinder.com/data/icons/pack1-baco-flurry-icons-style/512/XAMPP.png" alt="xampp" width="20"/> XAMPP  -  for database to work</li>
   <li>:earth_asia: - Internet for CDN Libraries to work</li>
-  <li>Download the latest sql edition found on Github Releases :arrow_right: OR go to <a href="https://github.com/denuden/AMK/releases/tag/v5.1">Database v5.1</a></li>
+  <li>Download the latest sql edition found on Github Releases of this project :arrow_right: <br> OR go to <a href="https://github.com/denuden/AMK/releases/tag/v5.1">Database v5.1</a></li>
 </ul>
 
 ### :gear: Setting up
@@ -74,7 +74,7 @@ then click create
 
 7. Once database has been created, on the top navigation, click import
 
-8. lick Choose File and make sure you select the recently downloaded SQL file that was mentioned earlier on the **Prerequisites Section**
+8. Click Choose File and make sure you select the recently downloaded SQL file that was mentioned earlier on the **Prerequisites Section**
 
 9. After that, your database is now already set up
  
@@ -93,6 +93,7 @@ then click create
 3. Extract the zip
 
 4. Navigate to XAMPP Installation folder and go to htdocs and paste the extracted folder called AMK
+
   Sample location:
    `D:\Documents\XAMPP\htdocs`
    
